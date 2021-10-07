@@ -38,9 +38,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="cadastroJogos.php">Cadastro</a></li>
-            <li><a class="dropdown-item" href="listaTudoJogos.php">Visualizar Tudo</a></li>
+            <li><a class="dropdown-item" href="../views/listaTudoJogos.php">Visualizar Tudo</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Busca por Código</a></li>
+            <li><a class="dropdown-item" href="listaTudoJogosCod.php">Busca por Código</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
