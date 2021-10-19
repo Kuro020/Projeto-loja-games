@@ -25,11 +25,11 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-    function inserirUsuarios($conexao,$email,$senha){
+    function inserirUsuarios($conexao,$email,$senha,$pin){
         $option = ['cost' => 8];
         $senhacrypto = password_hash($senha, PASSWORD_BCRYPT, $option); 
 
-        $query="insert into tbusuarios(emailUsu,senhaUsu)values('{$email}','{$senhacrypto}')";
+        $query="insert into tbusuarios(emailUsu,senhaUsu,pinUsu)values('{$email}','{$senhacrypto}','{$pin}')";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
@@ -44,8 +44,8 @@
         $resul=mysqli_fetch_array($resultados);
         return $resul;
     }
-    function alterarUsuarios($conexao,$codUsu,$emailUsu,$senhaUsu){
-        $query="update tbusuarios set emailUsu='{$emailUsu}', senhaUsu='{$senhaUsu}' where codUsu = '{$codUsu}'";
+    function alterarUsuarios($conexao,$codUsu,$emailUsu,$senhaUsu,$pinUsu){
+        $query="update tbusuarios set emailUsu='{$emailUsu}', senhaUsu='{$senhaUsu}', pinUsu = '{$pinUsu}' where codUsu = '{$codUsu}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
