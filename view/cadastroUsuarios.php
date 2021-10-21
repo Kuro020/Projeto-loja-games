@@ -4,6 +4,7 @@ include_once("header.php");
 <form method="POST" action="../controller/inserirUsuarios.php">
     <p>Email <input type="text" name="email"></p>
     <p>Senha <input type="text" name="senha"></p>
+    <p>PIN <input type="text" name="pin"></p>
     <button type="submit">Salvar</button>
 </form>
 <?php

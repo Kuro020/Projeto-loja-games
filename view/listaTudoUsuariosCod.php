@@ -22,6 +22,7 @@ include_once("../model/bancoJogos.php");
             <th scope="col">Código</th>
             <th scope="col">Email</th>
             <th scope="col">Senha</th>
+            <th scope="col">PIN</th>
             <th scope="col">Deletar</th>
             <th scope="col">Alterar</th>
         </tr>
@@ -36,6 +37,7 @@ include_once("../model/bancoJogos.php");
             <th scope="row"><?=$usuarios['codUsu']?></th>
             <td><?=$usuarios['emailUsu']?></td>
             <td><?=$usuarios['senhaUsu']?></td>
+            <td><?=$usuarios['pinUsu']?></td>
             <td>
                 <form action="../controller/deletarUsuarios.php" method="POST">
                     <input type="hidden" name="codUsuDeletar" value="<?=$usuarios['codUsu']?>">
