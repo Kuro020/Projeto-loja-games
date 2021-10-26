@@ -9,4 +9,3 @@ if(alterarUsuarios($conexao,$codUsu,$emailUsu,$senhaUsu,$pinUsu)){
     echo("Usuario não alterado.");
 }
 include("../view/footer.php");
-?>

@@ -4,17 +4,17 @@ include_once("../model/conexao.php");
 include_once("../model/bancoJogos.php");
 ?>
 <div class="container m-5 p-5">
-<form action="listaTudoUsuariosCod.php" method="GET">
-    <div class="row mb-3">
-        <label for="inputCod" class="col-sm-2 col-form-label">Digite o Código do Usuario: </label>
-        <div class="col-sm-3">
-            <input type="number" name="codUsu" class="form-control" id="inputCod" required>
+    <form action="listaTudoUsuariosCod.php" method="GET">
+        <div class="row mb-3">
+            <label for="inputCod" class="col-sm-2 col-form-label">Digite o Código do Usuario: </label>
+            <div class="col-sm-3">
+                <input type="number" name="codUsu" class="form-control" id="inputCod" required>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-dark">Buscar</button>
+            </div>
         </div>
-        <div class="col-sm-3">
-            <button type="submit" class="btn btn-dark">Buscar</button>
-        </div>
-    </div>
-</form>
+    </form>
 </div>
 <table class="table">
     <thead>
@@ -29,34 +29,38 @@ include_once("../model/bancoJogos.php");
     </thead>
     <tbody>
         <?php
-        $codUsu = isset($_GET['codUsu'])?$_GET['codUsu']:"0";
-        if($codUsu>0){
-            $usuarios = listaTudoUsuariosCod($conexao,$codUsu);
+        $codUsu = isset($_GET['codUsu']) ? $_GET['codUsu'] : "0";
+        if ($codUsu > 0) {
+            $usuarios = listaTudoUsuariosCod($conexao, $codUsu);
+            if ($usuarios) {
+
+
         ?>
-        <tr>
-            <th scope="row"><?=$usuarios['codUsu']?></th>
-            <td><?=$usuarios['emailUsu']?></td>
-            <td><?=$usuarios['senhaUsu']?></td>
-            <td><?=$usuarios['pinUsu']?></td>
-            <td>
-                <form action="../controller/deletarUsuarios.php" method="POST">
-                    <input type="hidden" name="codUsuDeletar" value="<?=$usuarios['codUsu']?>">
-                    <button type="submit" class="btn-small btn-danger">Deletar</button>
-                </form>
-            </td>
-            <td>
-                <form action="formAlterarUsuarios.php" method="POST">
-                    <input type="hidden" name="codUsuAlterar" value="<?=$usuarios['codUsu']?>">
-                    <button type="submit" class="btn-small btn-success">Alterar</button>
-                </form>
-            </td>
-        </tr>
+                <tr>
+                    <th scope="row"><?= $usuarios['codUsu'] ?></th>
+                    <td><?= $usuarios['emailUsu'] ?></td>
+                    <td><?= $usuarios['senhaUsu'] ?></td>
+                    <td><?= $usuarios['pinUsu'] ?></td>
+                    <td>
+                        <form action="../controller/deletarUsuarios.php" method="POST">
+                            <input type="hidden" name="codUsuDeletar" value="<?= $usuarios['codUsu'] ?>">
+                            <button type="submit" class="btn-small btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="formAlterarUsuarios.php" method="POST">
+                            <input type="hidden" name="codUsuAlterar" value="<?= $usuarios['codUsu'] ?>">
+                            <button type="submit" class="btn-small btn-success">Alterar</button>
+                        </form>
+                    </td>
+                </tr>
         <?php
+            }
         }
         ?>
-        
+
     </tbody>
-    </table>
+</table>
 <?php
 include_once("footer.php");
 ?>

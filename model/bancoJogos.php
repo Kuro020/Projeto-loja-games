@@ -45,7 +45,10 @@
         return $resul;
     }
     function alterarUsuarios($conexao,$codUsu,$emailUsu,$senhaUsu,$pinUsu){
-        $query="update tbusuarios set emailUsu='{$emailUsu}', senhaUsu='{$senhaUsu}', pinUsu = '{$pinUsu}' where codUsu = '{$codUsu}'";
+        $option = ['cost' => 8];
+        $senhacrypto = password_hash($senhaUsu, PASSWORD_BCRYPT, $option);
+        
+        $query="update tbusuarios set emailUsu='{$emailUsu}', senhaUsu='{$senhacrypto}', pinUsu = '{$pinUsu}' where codUsu = '{$codUsu}'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }

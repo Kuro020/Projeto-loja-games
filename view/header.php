@@ -42,10 +42,10 @@
                             Clientes
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Cadastro</a></li>
-                                <li><a class="dropdown-item" href="#">Visualizar</a></li>
+                                <li><a class="dropdown-item" href="../view/cadastroClientes.php">Cadastro</a></li>
+                                <li><a class="dropdown-item" href="../view/listaTudoClientes.php">Visualizar</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Buscar por Código</a></li>
+                                <li><a class="dropdown-item" href="../view/listaTudoClientesCod.php">Buscar por Código</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

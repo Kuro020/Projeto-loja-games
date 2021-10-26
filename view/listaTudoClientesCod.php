@@ -1,14 +1,14 @@
 <?php
 include_once("header.php");
 include_once("../model/conexao.php");
-include_once("../model/bancoJogos.php");
+include_once("../model/bancoCliente.php");
 ?>
 <div class="container m-5 p-5">
-    <form action="listaTudoJogosCod.php" method="GET">
+    <form action="listaTudoClientesCod.php" method="GET">
         <div class="row mb-3">
-            <label for="inputCod" class="col-sm-2 col-form-label">Digite o Código do Jogo: </label>
+            <label for="inputCod" class="col-sm-2 col-form-label">Digite o Código do Cliente: </label>
             <div class="col-sm-3">
-                <input type="number" name="codJog" class="form-control" id="inputCod" required>
+                <input type="number" name="codCli" class="form-control" id="inputCod" required>
             </div>
             <div class="col-sm-3">
                 <button type="submit" class="btn btn-dark">Buscar</button>
@@ -29,25 +29,26 @@ include_once("../model/bancoJogos.php");
     </thead>
     <tbody>
         <?php
-        $codJogo = isset($_GET['codJog']) ? $_GET['codJog'] : "0";
-        if ($codJogo > 0) {
-            $jogos = listaTudoJogosCod($conexao, $codJogo);
-            if ($jogos) {
+        $codCliente = isset($_GET['codCli']) ? $_GET['codCli'] : "0";
+        if ($codCliente > 0) {
+            $clientes = listaTudoClientesCod($conexao, $codCliente);
+            if ($clientes) {
         ?>
                 <tr>
-                    <th scope="row"><?= $jogos['codJog'] ?></th>
-                    <td><?= $jogos['nomeJog'] ?></td>
-                    <td><?= $jogos['consoleJog'] ?></td>
-                    <td><?= $jogos['precoJog'] ?></td>
+                    <th scope="row"><?= $clientes['codCli'] ?></th>
+                    <td><?= $clientes['nomeCli'] ?></td>
+                    <td><?= $clientes['cpfCli'] ?></td>
+                    <td><?= $clientes['foneCli'] ?></td>
+                    <td><?= $clientes['datanasCli'] ?></td>
                     <td>
-                        <form action="../controller/deletarJogos.php" method="POST">
-                            <input type="hidden" name="codJogDeletar" value="<?= $jogos['codJog'] ?>">
+                        <form action="../controller/deletarClientes.php" method="POST">
+                            <input type="hidden" name="codCliDeletar" value="<?= $clientes['codCli'] ?>">
                             <button type="submit" class="btn-small btn-danger">Deletar</button>
                         </form>
                     </td>
                     <td>
-                        <form action="formAlterarJogos.php" method="POST">
-                            <input type="hidden" name="codJogAlterar" value="<?= $jogos['codJog'] ?>">
+                        <form action="formAlterarClientes.php" method="POST">
+                            <input type="hidden" name="codCliAlterar" value="<?= $clientes['codCli'] ?>">
                             <button type="submit" class="btn-small btn-success">Alterar</button>
                         </form>
                     </td>
