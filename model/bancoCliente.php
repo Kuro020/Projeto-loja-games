@@ -16,6 +16,14 @@
         $resul=mysqli_fetch_array($resultados);
         return $resul;
     }
+
+    function listaClienteUsuario($conexao,$codUsu){
+        $query="Select * from tbusuarios where codUsu={$codUsu}";
+        $resultados=mysqli_query($conexao,$query);
+        $resul=mysqli_fetch_array($resultados);
+        return $resul;
+    }
+
     function alterarClientes($conexao,$codCli,$nomeCli,$cpfCli,$foneCli,$datanasCli){
         $query="update tbclientes set nomeCli='{$nomeCli}', cpfCli='{$cpfCli}', foneCli = '{$foneCli}', datanasCli = '{$datanasCli}' where codCli = '{$codCli}'";
         $resultados=mysqli_query($conexao,$query);
