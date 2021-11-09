@@ -23,13 +23,17 @@ if($usuario){
 
 
 ?>
-<form method="POST" action="../controller/inserirClientes.php">
-    <p>Código Clientes <input type="text" name="codUsu" value="<?=$codUsu?>"></p>    
-    <p>Nome <input type="text" name="nomecli"></p>
-    <p>CPF <input type="text" name="cpfcli"></p>
-    <p>Telefone <input type="text" name="fonecli"></p>
-    <p>Data de Nascimento <input type="date" name="datanascli"></p>
-    <button type="submit">Salvar</button>
+<div class="card">
+  <div class="card-body">
+        <form method="POST" action="../controller/inserirClientes.php">
+            <p>Código Clientes <input type="text" name="codUsu" value="<?=$codUsu?>"></p>    
+            <p>Nome <input type="text" name="nomecli"></p>
+            <p>CPF <input type="text" name="cpfcli"></p>
+            <p>Telefone <input type="text" name="fonecli"></p>
+            <p>Data de Nascimento <input type="date" name="datanascli"></p>
+            <button type="submit">Salvar</button>
+    </div>
+</div>
 </form>
 <?php
 }
