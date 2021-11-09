@@ -23,14 +23,18 @@ if($usuario){
 
 
 ?>
-<form method="POST" action="../controller/inserirFuncionario.php">
-    <p>Código Funcionarios <input type="text" name="codUsu" value="<?=$codUsu?>"></p>    
-    <p>Nome <input type="text" name="nomeFun"></p>
-    <p>Função <input type="text" name="funcaoFun"></p>
-    <p>Telefone <input type="text" name="foneFun"></p>
-    <p>Data de Nascimento <input type="date" name="datanasFun"></p>
-    <button type="submit">Salvar</button>
-</form>
+<div class="card">
+  <div class="card-body">
+        <form method="POST" action="../controller/inserirFuncionario.php">
+            <p>Código Funcionarios <input type="text" name="codUsu" value="<?=$codUsu?>"></p>    
+            <p>Nome <input type="text" name="nomeFun"></p>
+            <p>Função <input type="text" name="funcaoFun"></p>
+            <p>Telefone <input type="text" name="foneFun"></p>
+            <p>Data de Nascimento <input type="date" name="datanasFun"></p>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
 <?php
 }
 include_once("footer.php");

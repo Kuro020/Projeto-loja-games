@@ -16,6 +16,14 @@
         $resul=mysqli_fetch_array($resultados);
         return $resul;
     }
+
+    function listaFuncionarioUsuario($conexao,$codUsu){
+        $query="Select * from tbusuarios where codUsu={$codUsu}";
+        $resultados=mysqli_query($conexao,$query);
+        $resul=mysqli_fetch_array($resultados);
+        return $resul;
+    }
+
     function alterarFuncionarios($conexao,$codFun,$nomeFun,$funcaoFun,$foneFun,$datanasFun){
         $query="update tbfuncionarios set nomeFun='{$nomeFun}', funcaoFun='{$funcaoFun}', foneFun = '{$foneFun}', datanasFun = '{$datanasFun}' where codFun = '{$codFun}'";
         $resultados=mysqli_query($conexao,$query);
@@ -27,7 +35,7 @@
         return $resultados;
     }
     function listaTudoFuncionariosNome($conexao, $nomeFuncionario){
-        $query = "select * from tbfuncionario where nomeFun like '%{$nomeFuncionario}%'";
+        $query = "select * from tbfuncionarios where nomeFun like '%{$nomeFuncionario}%'";
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
