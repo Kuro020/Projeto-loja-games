@@ -18,33 +18,33 @@ include_once("../model/bancoFuncionario.php");
     <tbody>
         <?php
         $funcionarios = listaTudoFuncionarios($conexao);
-        foreach($funcionarios as $funcionario):
+        foreach ($funcionarios as $funcionario) :
         ?>
-        <tr>
-            <th scope="row"><?=$funcionario['codFun']?></th>
-            <td><?=$funcionario['nomeFun']?></td>
-            <td><?=$funcionario['funcaoFun']?></td>
-            <td><?=$funcionario['foneFun']?></td>
-            <td><?=$funcionario['datanasFun']?></td>
-            <td>
-                <form action="../controller/deletarFuncionarios.php" method="POST">
-                    <input type="hidden" name="codFunDeletar" value="<?=$funcionario['codFun']?>">
-                    <button type="submit" class="btn-small btn-danger">Deletar</button>
-                </form>
-            </td>
-            <td>
-                <form action="formAlterarFuncionarios.php" method="POST">
-                    <input type="hidden" name="codFunAlterar" value="<?=$funcionario['codFun']?>">
-                    <button type="submit" class="btn-small btn-success">Alterar</button>
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <th scope="row"><?= $funcionario['codFun'] ?></th>
+                <td><?= $funcionario['nomeFun'] ?></td>
+                <td><?= $funcionario['funcaoFun'] ?></td>
+                <td><?= $funcionario['foneFun'] ?></td>
+                <td><?= $funcionario['datanasFun'] ?></td>
+                <td>
+                    <form action="../controller/deletarFuncionarios.php" method="POST">
+                        <input type="hidden" name="codFunDeletar" value="<?= $funcionario['codFun'] ?>">
+                        <button type="submit" class="btn-small btn-danger">Deletar</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="formAlterarFuncionarios.php" method="POST">
+                        <input type="hidden" name="codFunAlterar" value="<?= $funcionario['codFun'] ?>">
+                        <button type="submit" class="btn-small btn-success">Alterar</button>
+                    </form>
+                </td>
+            </tr>
         <?php
         endforeach;
         ?>
-        
+
     </tbody>
-    </table>
+</table>
 <?php
 include_once("footer.php");
 ?>

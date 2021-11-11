@@ -39,4 +39,3 @@
         $resultados=mysqli_query($conexao,$query);
         return $resultados;
     }
-?>

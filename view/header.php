@@ -6,17 +6,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Projeto PHP</title>
     </head>
-    <style>
-    .container3{
-        margin: 0;
-        background: yellow;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate (-50%, -50%)
-    }
-    </style>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">

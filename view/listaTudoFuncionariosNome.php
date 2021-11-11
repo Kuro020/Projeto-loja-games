@@ -31,35 +31,35 @@ include_once("../model/bancoFuncionario.php");
     </thead>
     <tbody>
         <?php
-        $nomeFuncionario = isset($_GET['NomeFun']) ? $_GET['NomeFun'] :"";
+        $nomeFuncionario = isset($_GET['NomeFun']) ? $_GET['NomeFun'] : "";
         if ($nomeFuncionario != "") {
             $funcionario = listaTudoFuncionariosNome($conexao, $nomeFuncionario);
             if ($funcionario) {
 
-                foreach($funcionario as $funcionarios) :
+                foreach ($funcionario as $funcionarios) :
         ?>
-                <tr>
-                    <th scope="row"><?= $funcionarios['codFun'] ?></th>
-                    <td><?= $funcionarios['nomeFun'] ?></td>
-                    <td><?= $funcionarios['codUsuFK'] ?></td>
-                    <td><?= $funcionarios['funcaoFun'] ?></td>
-                    <td><?= $funcionarios['foneFun'] ?></td>
-                    <td><?= $funcionarios['datanasFun'] ?></td>
-                    <td>
-                        <form action="../controller/deletarFuncionarios.php" method="POST">
-                            <input type="hidden" name="codFunDeletar" value="<?= $funcionarios['codFun'] ?>">
-                            <button type="submit" class="btn-small btn-danger">Deletar</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="formAlterarFuncionarios.php" method="POST">
-                            <input type="hidden" name="codFunAlterar" value="<?= $funcionarios['codFun'] ?>">
-                            <button type="submit" class="btn-small btn-success">Alterar</button>
-                        </form>
-                    </td>
-                </tr>
+                    <tr>
+                        <th scope="row"><?= $funcionarios['codFun'] ?></th>
+                        <td><?= $funcionarios['nomeFun'] ?></td>
+                        <td><?= $funcionarios['codUsuFK'] ?></td>
+                        <td><?= $funcionarios['funcaoFun'] ?></td>
+                        <td><?= $funcionarios['foneFun'] ?></td>
+                        <td><?= $funcionarios['datanasFun'] ?></td>
+                        <td>
+                            <form action="../controller/deletarFuncionarios.php" method="POST">
+                                <input type="hidden" name="codFunDeletar" value="<?= $funcionarios['codFun'] ?>">
+                                <button type="submit" class="btn-small btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="formAlterarFuncionarios.php" method="POST">
+                                <input type="hidden" name="codFunAlterar" value="<?= $funcionarios['codFun'] ?>">
+                                <button type="submit" class="btn-small btn-success">Alterar</button>
+                            </form>
+                        </td>
+                    </tr>
         <?php
-        endforeach;
+                endforeach;
             }
         }
         ?>

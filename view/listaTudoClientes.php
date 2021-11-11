@@ -18,33 +18,33 @@ include_once("../model/bancoCliente.php");
     <tbody>
         <?php
         $clientes = listaTudoClientes($conexao);
-        foreach($clientes as $cliente):
+        foreach ($clientes as $cliente) :
         ?>
-        <tr>
-            <th scope="row"><?=$cliente['codCli']?></th>
-            <td><?=$cliente['nomeCli']?></td>
-            <td><?=$cliente['cpfCli']?></td>
-            <td><?=$cliente['foneCli']?></td>
-            <td><?=$cliente['datanasCli']?></td>
-            <td>
-                <form action="../controller/deletarClientes.php" method="POST">
-                    <input type="hidden" name="codCliDeletar" value="<?=$cliente['codCli']?>">
-                    <button type="submit" class="btn-small btn-danger">Deletar</button>
-                </form>
-            </td>
-            <td>
-                <form action="formAlterarCliente.php" method="POST">
-                    <input type="hidden" name="codCliAlterar" value="<?=$cliente['codCli']?>">
-                    <button type="submit" class="btn-small btn-success">Alterar</button>
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <th scope="row"><?= $cliente['codCli'] ?></th>
+                <td><?= $cliente['nomeCli'] ?></td>
+                <td><?= $cliente['cpfCli'] ?></td>
+                <td><?= $cliente['foneCli'] ?></td>
+                <td><?= $cliente['datanasCli'] ?></td>
+                <td>
+                    <form action="../controller/deletarClientes.php" method="POST">
+                        <input type="hidden" name="codCliDeletar" value="<?= $cliente['codCli'] ?>">
+                        <button type="submit" class="btn-small btn-danger">Deletar</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="formAlterarCliente.php" method="POST">
+                        <input type="hidden" name="codCliAlterar" value="<?= $cliente['codCli'] ?>">
+                        <button type="submit" class="btn-small btn-success">Alterar</button>
+                    </form>
+                </td>
+            </tr>
         <?php
         endforeach;
         ?>
-        
+
     </tbody>
-    </table>
+</table>
 <?php
 include_once("footer.php");
 ?>
