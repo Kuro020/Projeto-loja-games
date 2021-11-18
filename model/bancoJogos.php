@@ -38,6 +38,7 @@ function inserirUsuarios($conexao, $email, $senha, $pin)
     $query = "insert into tbusuarios(emailUsu,senhaUsu,pinUsu)values('{$email}','{$senhacrypto}','{$pin}')";
     $resultados = mysqli_query($conexao, $query);
     return $resultados;
+    header("Location:../view/logar.php");
 }
 function listaTudoUsuarios($conexao)
 {
@@ -86,4 +87,13 @@ function buscarAcesso($conexao, $email, $senha)
     } else {
         return "Email não cadastrado";
     }
+}
+function sairSistema(){
+    session_destroy();
+    $_SESSION["msg"] = "<div class='alert alert-danger' role='alert'>Sua sessão expirou.</div>";
+    header("Location:../view/logar.php");
+}
+function Cadastro(){
+    $_SESSION["msg"] = "<div class='alert alert-success' role='alert'>Cadastrado com sucesso.</div>";
+    header("Location:../view/logar.php");
 }

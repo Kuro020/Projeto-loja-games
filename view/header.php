@@ -1,4 +1,14 @@
 <!DOCTYPE HTML>
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE){
+    session_start();
+}
+
+if(!$_SESSION["emailUsuario"]){
+    $_SESSION["msg"] = "<div class='alert alert-danger' role='alert'>Você não tem acesso a essa página.</div>";
+    header("Location:../view/logar.php");
+}else{
+?>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -64,18 +74,20 @@
                             Pedidos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Cadastro</a></li>
+                                <li><a class="dropdown-item" href="../view/cadastroPedido.php">Cadastro</a></li>
                                 <li><a class="dropdown-item" href="#">Visualizar</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Buscar por Código</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar">
-                        <button class="btn btn-outline-light" type="submit">Buscar</button>
+                    <form class="d-flex" action="../controller/sair.php">
+                        <button class="btn btn-outline-danger" type="submit">Sair</button>
                     </form>
                 </div>
             </div>
         </nav>
         <div class="container">
+        <?php
+            }
+        ?>
