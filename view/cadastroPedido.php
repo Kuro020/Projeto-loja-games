@@ -33,9 +33,6 @@ $funcionario = listaBuscaFuncionarioUsuario($conexao, $codUsuFK);
             </div>
         </form>
     </div>
-    <?php
- 
-    ?>
     <div class="col-md-9">
         <label for="inputNomeCli" class="form-label">Cliente</label>
         <input type="text" value="<?= $_SESSION["nomeCliente"] ?>" class="form-control" id="inputNomeCli">
@@ -62,9 +59,10 @@ $funcionario = listaBuscaFuncionarioUsuario($conexao, $codUsuFK);
         <label for="inputNomeJog" class="form-label">Jogo</label>
         <input type="text" value="<?= $jogos['nomeJog'] ?>" class="form-control" id="inputNomeJog">
     </div>
+    <form method="POST" action="cadastroPedido.php">
     <div class="col-md-1">
         <label for="inputQtdJog" class="form-label">Quantidade</label>
-        <select id="inputQtdJog" class="form-select" onchange="Quantidadejogo(this.value)">
+        <select id="inputQtdJog" class="form-select" name="Quantidade">
             <option selected>Escolha...</option>
             <option value=1>1</option>
             <option value=2>2</option>
@@ -75,21 +73,22 @@ $funcionario = listaBuscaFuncionarioUsuario($conexao, $codUsuFK);
     </div>
     <div class="col-md-2">
         <label for="inputUnitario" class="form-label">Valor Unitário</label>
-        <input type="text" value="<?= $jogos['precoJog'] ?>" class="form-control" id="inputUnitario">
+        <input type="text" value="<?= $jogos['precoJog'] ?>" class="form-control" name="Valor" id="inputUnitario">
     </div>
     <div class="col-md-2">
         <label for="inputTotal" class="form-label">Valor Total</label>
-        <input type="text" class="form-control" id="inputTotal">
+        <input type="text" class="form-control" value="<?php echo("$total")?>" id="inputTotal">
     </div>
+    </form>
     <div class="col-12">
         <button type="submit" class="btn btn-success">Confirmar</button>
     </div>
 </div>
 
 <script>
-    function Quantidadejogo(inputQtdJog){
-        alert(doSomething(inputQtdJog));
-    }
+    var quant = $_POST["Quantidade"];
+    var unit = $_POST["Valor"];
+    var total = $quant*$unit;
 </script>
 <?php
 include_once("footer.php");
